@@ -38,3 +38,11 @@ variable "port_number" {
   description = "Remote tcp port to be used for access to the vms created via the nsg applied to the nics."
   default = ["22","8080","80"]
 }
+
+variable "aws_access_key" {
+    default = "AKIAQ46QPELNF6IR3AO2"
+}
+variable "aws_secret_key" {
+    default = "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"
+}
+
