@@ -12,7 +12,7 @@ resource "aws_subnet" "subnet" {
     count = "${var.instances}"
     vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "${var.subnet_cidr[count.index]}"
-    availability_zone = "${data.aws_availability_zones.azs.names[count.index]}"
+    availability_zone = "${data.aws_availability_zones.azs.names}"
 }
 
 resource "aws_internet_gateway" "igw" {
