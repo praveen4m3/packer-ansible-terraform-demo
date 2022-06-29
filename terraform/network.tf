@@ -43,9 +43,9 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route_table_association" "public" {
-    route_table_id = "${aws_route_table.public.id}"
+    route_table_id = aws_route_table.public.id
 
-    subnet_id = "${aws_subnet.subnet[0].id}"
+    subnet_id = aws_subnet.subnet.id
 }
 
 resource "aws_security_group" "sg" {
