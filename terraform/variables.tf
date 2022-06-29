@@ -48,4 +48,5 @@ variable "aws_secret_key" {
 
 variable "avail_zone" {
     default = "ap-south-1a
+}
 
