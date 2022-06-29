@@ -46,3 +46,6 @@ variable "aws_secret_key" {
     default = "4xQJVc0Crxy7aOoX5i2JHucF/giXus7oFkZc5uKE"
 }
 
+variable "avail_zone" {
+    default = "ap-south-1a
+
