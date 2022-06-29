@@ -1,5 +1,3 @@
-data "aws_availability_zones" "azs" {}
-
 resource "aws_vpc" "vpc" {
   cidr_block           = "${var.vpc_cidr}"
 
@@ -12,7 +10,7 @@ resource "aws_subnet" "subnet" {
     count = "${var.instances}"
     vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "${var.subnet_cidr[count.index]}"
-    availability_zone = "${data.aws_availability_zones.azs.names}"
+    availability_zone = var.avail_zone
 }
 
 resource "aws_internet_gateway" "igw" {
