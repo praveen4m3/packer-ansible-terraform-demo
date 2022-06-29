@@ -38,6 +38,6 @@ variable "sg_source" {
 
 variable "port_number" {
   description = "Remote tcp port to be used for access to the vms created via the nsg applied to the nics."
-  default = ["22","3000","9090","9093","8080","80"]
+  default = ["22","8080","80"]
   type = list(string)
 }
