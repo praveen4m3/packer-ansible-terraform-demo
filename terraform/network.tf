@@ -20,14 +20,6 @@ resource "aws_internet_gateway" "igw" {
     }
 }
 
-resource "aws_eip" "eip" {
-    vpc = true
-
-    tags = {
-        Name = "${var.stack}-nat-eip"
-    }
-}
-
 resource "aws_route_table" "public" {
      vpc_id = "${aws_vpc.vpc.id}"
 
