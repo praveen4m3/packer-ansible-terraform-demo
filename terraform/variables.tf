@@ -1,7 +1,7 @@
 
 variable region {
     description = "AWS Region"
-    default = "us-east-1"
+    default = "ap-south-1"
 }
 
 variable "stack" {
@@ -16,13 +16,7 @@ variable "vpc_cidr" {
 
 variable "subnet_cidr" {
     description = "Subnet CIDR blocks"
-    type = "list"
-    default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24", "10.0.4.0/24"]
-}
-
-variable "instances" {
-     default = 1
-     description = "No of instances"
+    default = "10.0.1.0/24"
 }
 
 variable "vm_size" {
@@ -30,19 +24,26 @@ variable "vm_size" {
     default = "t2.micro"
 }
 
-variable "ssh_key" {
-    default = "~/.ssh/id_rsa.pub"
-    description = "Path to the public key to be used for ssh access to the VM"
-}
+
 
 variable "sg_source" {
     default = ["0.0.0.0/0"]
     description = "source cidr for sg"
-    type = "list"
 }
 
 variable "port_number" {
   description = "Remote tcp port to be used for access to the vms created via the nsg applied to the nics."
-  default = ["22","3000","9090","9093","8080","80"]
-  type = "list"
+  default = ["22","8080","80"]
+}
+
+variable "avail_zone" {
+  default = "ap-south-1a"
+}
+
+variable "aws_access_key" {
+  default = "AKIAQ46QPELNF6IR3AO2"
+}
+
+variable "aws_secret_key" {
+  default = "4xQJVc0Crxy7aOoX5i2JHucF/giXus7oFkZc5uKE"
 }

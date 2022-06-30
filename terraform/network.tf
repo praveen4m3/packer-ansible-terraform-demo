@@ -1,5 +1,3 @@
-data "aws_availability_zones" "azs" {}
-
 resource "aws_vpc" "vpc" {
   cidr_block           = "${var.vpc_cidr}"
 
@@ -9,10 +7,9 @@ tags = {
 }
 
 resource "aws_subnet" "subnet" {
-    count = "${var.instances}"
     vpc_id = "${aws_vpc.vpc.id}"
-    cidr_block = "${var.subnet_cidr[count.index]}"
-    availability_zone = "${data.aws_availability_zones.azs.names[count.index]}"
+    cidr_block = "${var.subnet_cidr}"
+    availability_zone = "${var.avail_zone}"
 }
 
 resource "aws_internet_gateway" "igw" {
@@ -23,13 +20,6 @@ resource "aws_internet_gateway" "igw" {
     }
 }
 
-resource "aws_eip" "eip" {
-    vpc = true
-
-    tags = {
-        Name = "${var.stack}-nat-eip"
-    }
-}
 
 resource "aws_route_table" "public" {
      vpc_id = "${aws_vpc.vpc.id}"
@@ -47,7 +37,7 @@ resource "aws_route_table" "public" {
 resource "aws_route_table_association" "public" {
     route_table_id = "${aws_route_table.public.id}"
 
-    subnet_id = "${aws_subnet.subnet[0].id}"
+    subnet_id = "${aws_subnet.subnet.id}"
 }
 
 resource "aws_security_group" "sg" {
