@@ -1,0 +1,2 @@
+35.154.226.191 ansible_user=ec2-user private_key_pair_file=/home/ubuntu/packer-ansible-terraform-demo/ansible/ATP.pem
+
