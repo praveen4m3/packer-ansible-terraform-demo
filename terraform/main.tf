@@ -4,7 +4,7 @@ resource "aws_instance" "ec2" {
   subnet_id = "${aws_subnet.subnet.id}"
   associate_public_ip_address = true
   vpc_security_group_ids = ["${aws_security_group.sg.id}"]
-  key_name = "atp"
+  key_name = "ATP"
   tags = {
     Name = "${var.stack}-growlerfriday"
   }
