@@ -9,5 +9,3 @@ output "curl" {
 output "example-ami-packer" {
   value = "${data.aws_ami.packer_image.id}"
 }
-Footer
-© 2022 GitHub, Inc.
