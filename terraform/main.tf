@@ -16,7 +16,7 @@ data "aws_ami" "packer_image" {
 
   filter {
     name   = "name"
-    values = ["JavaHome"]
+    values = ["example-ami-packer"]
   }
 
   filter {
