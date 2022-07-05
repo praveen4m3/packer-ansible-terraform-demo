@@ -16,7 +16,7 @@ data "aws_ami" "packer_image" {
 
   filter {
     name   = "name"
-    values = ["example-ami-packer"]
+    values = ["packer-example"]
   }
 
   filter {
@@ -24,5 +24,5 @@ data "aws_ami" "packer_image" {
     values = ["hvm"]
   }
 
-  owners = ["062177354458"] # Canonical
+  owners = ["140548941022"] # Canonical
 }
